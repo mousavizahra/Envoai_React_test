@@ -1,4 +1,4 @@
-.system-monitor-container {
+/* .system-monitor-container {
   background: white;
   padding: 1.5rem;
   border-radius: 8px;
@@ -152,4 +152,269 @@
     align-items: flex-start;
   }
 }
+ */
 
+
+
+
+ .system-monitor-container {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid #e0e0e0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.monitor-header h3 {
+  color: #333;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.monitor-header button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.monitoring-active {
+  background: #28a745;
+}
+
+.monitoring-active:hover {
+  background: #218838;
+}
+
+.monitoring-paused {
+  background: #ffc107;
+  color: #333;
+}
+
+.monitoring-paused:hover {
+  background: #e0a800;
+}
+
+/* ===== GRID LAYOUT ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+/* ===== STAT CARD ===== */
+.stat-card {
+  background: #f8f9fa;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* color states */
+.stat-card.status-good {
+  border-left-color: #28a745;
+}
+
+.stat-card.status-warning {
+  border-left-color: #ffc107;
+}
+
+.stat-card.status-critical {
+  border-left-color: #dc3545;
+}
+
+/* ===== ICON ===== */
+.stat-icon {
+  font-size: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+}
+
+/* ===== DETAILS ===== */
+.stat-details {
+  flex: 1;
+}
+
+.stat-details h4 {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.stat-percentage {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.6s ease;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* color transitions */
+.status-good .progress-fill {
+  background: #28a745;
+}
+
+.status-warning .progress-fill {
+  background: #ffc107;
+}
+
+.status-critical .progress-fill {
+  background: #dc3545;
+}
+
+/* ===== FOOTER INFO ===== */
+.monitor-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+}
+
+.monitor-info p {
+  margin: 0;
+  color: #856404;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media (max-width: 992px) {
+  .system-monitor-container {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .monitor-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .system-monitor-container {
+    padding: 1rem;
+  }
+
+  .monitor-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .monitor-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .stat-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-details h4 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .system-monitor-container {
+    padding: 0.75rem;
+  }
+
+  .monitor-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .monitor-header button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .stat-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-details {
+    width: 100%;
+  }
+
+  .progress-bar {
+    height: 6px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+}

@@ -1,42 +1,109 @@
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.instructions {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.instructions h3 {
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.instructions ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ===== FIXED MESSY LAYOUT ===== */
 .messy-layout {
-  position: relative;
-  margin-left: -20px;
-  padding-right: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.messy-layout > div:first-child {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 45%;
-  z-index: 2;
-  margin-top: 20px;
+/* child components (DataEntryTable + SystemMonitorTable) */
+.messy-layout > div {
+  flex: 1 1 45%;
+  min-width: 340px;
+  max-width: 580px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.messy-layout > div:last-child {
-  position: absolute;
-  left: 10%;
-  top: 50px;
-  width: 60%;
-  z-index: 1;
-  margin-bottom: 30px;
+.messy-layout > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.messy-layout::after {
-  content: "";
-  display: block;
-  height: 800px;
-}
-
-@media (max-width: 768px) {
-  .messy-layout > div:first-child {
-    left: 70%;
-    width: 80%;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .messy-layout {
+    gap: 1.5rem;
   }
-  
-  .messy-layout > div:last-child {
-    left: 5%;
-    width: 90%;
+  .messy-layout > div {
+    flex: 1 1 100%;
+    max-width: 700px;
   }
 }
 
+@media (max-width: 600px) {
+  .page-container {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+  }
+
+  .instructions {
+    padding: 1rem 1.25rem;
+  }
+
+  .instructions ul {
+    font-size: 0.9rem;
+  }
+
+  .messy-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .messy-layout > div {
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+}
